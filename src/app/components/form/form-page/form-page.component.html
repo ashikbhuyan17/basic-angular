@@ -1,0 +1,24 @@
+<h1>
+    <p>form-page works!</p>
+</h1>
+
+<button (click)="getData('')">call function </button><br>
+<br>
+<input type="text" name="ashik" id="" placeholder="click value" #clickValue>
+<button (click)="getData(clickValue.value)">click value</button>
+
+<br><br>
+
+<!-- <input type="text" name="ashik" id="" #box (keyup)="getData(box.value)"> -->
+<br><br>
+<input type="text" name="ashik" id="" placeholder="key up" #box (keyup)="getData(box.value)">
+<br><br>
+<input type="text" name="ashik" id="" placeholder="key down" #box1 (keydown)="getData(box1.value)">
+<br><br>
+<input type="text" name="ashik" id="" placeholder="blur" #box2 (blur)="getData(box2.value)">
+
+<br><br>
+<input type="text" name="ashik" id="" placeholder="input" #box3 (input)="getData(box3.value)">
+
+<br><br>
+<h1 (mouseover)="getData('over')">hi this is mouse over</h1>
