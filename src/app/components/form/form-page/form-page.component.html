@@ -11,14 +11,120 @@
 
 <!-- <input type="text" name="ashik" id="" #box (keyup)="getData(box.value)"> -->
 <br><br>
+<label for="">keyUp</label>
 <input type="text" name="ashik" id="" placeholder="key up" #box (keyup)="getData(box.value)">
 <br><br>
+<label for="">keyDown</label>
 <input type="text" name="ashik" id="" placeholder="key down" #box1 (keydown)="getData(box1.value)">
 <br><br>
+<label for="">blur</label>
 <input type="text" name="ashik" id="" placeholder="blur" #box2 (blur)="getData(box2.value)">
 
 <br><br>
+<label for="">Input</label>
 <input type="text" name="ashik" id="" placeholder="input" #box3 (input)="getData(box3.value)">
 
 <br><br>
 <h1 (mouseover)="getData('over')">hi this is mouse over</h1>
+
+
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;">counter =></h1>
+    </div>
+    <h3>count : {{countValue}} </h3>
+    <button style="margin-right: 10px;" (click)="counter('minus')">--</button>
+    <button (click)="counter('add')">++</button>
+</div>
+
+<!-- interpolation vs property binding :
+interpolation string,number .... niye koaj kore bt boolean allow kore na 
+bt property binding both allow (boolean,string,num.....) -->
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;">interpolation vs property binding :</h1>
+    </div>
+    <!-- interpolation (disable false bt ekne kaj kore na) -->
+    <input type="text" value={{bindingData}} disabled={{disable}}> <br><br>
+    <!--property binding  -->
+    <input type="text" [value]=bindingData [disabled]=disable> <br><br>
+</div>
+
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;"> If else condition :</h1>
+    </div>
+    <div style="background-color: aliceblue;">
+        <h1 *ngIf="show else elseBlock"> this is true</h1>
+        <ng-template #elseBlock>
+            <h2>this is false</h2>
+        </ng-template>
+    </div>
+
+    <div style="background-color: aliceblue;">
+        <h1 *ngIf="show; then ifBlock else elseBlock"></h1>
+        <ng-template #ifBlock>
+            <h2>this is true</h2>
+        </ng-template>
+        <ng-template #elseBlock>
+            <h2>this is false</h2>
+        </ng-template>
+    </div>
+
+    <div style="background-color: aliceblue;">
+        <h1 *ngIf="showValueType =='yes' then ifBlock else elseBlock"></h1>
+        <ng-template #ifBlock>
+            <h2>this is true</h2>
+        </ng-template>
+        <ng-template #elseBlock>
+            <h2>this is false</h2>
+        </ng-template>
+    </div>
+</div>
+
+
+<!-- switch case -->
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;">switch case :</h1>
+    </div>
+    <div [ngSwitch]="color">
+        <h1 *ngSwitchCase="'red'" style="color: red;">Red color</h1>
+        <h1 *ngSwitchCase="'green'" style="color: green;"> green color</h1>
+        <h1 *ngSwitchCase="'blur'" style="color: blur;">blur color</h1>
+        <h1 *ngSwitchCase="'orange'" style="color: orange;">orange color</h1>
+        <h1 *ngSwitchCase="'skyblue'" style="color: skyblue;">skyblue color</h1>
+        <h1 *ngSwitchDefault>unknown color</h1>
+
+
+    </div>
+
+</div>
+
+<!--  For Loop | *ngFor -->
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;"> For Loop | *ngFor :</h1>
+    </div>
+    <div *ngFor="let user of users">
+        <h4>{{user}}</h4>
+    </div>
+    <div *ngFor="let user of userObject">
+        <h4>{{user.name}}-- {{user.age}}-- {{user.department}}</h4>
+    </div>
+
+</div>
+
+<!--  Nested Loop -->
+<div style="margin:100px; border: 2px solid rebeccapurple; padding: 20px;">
+    <div>
+        <h1 style="margin: auto; text-align: center;"> Nested Loop :</h1>
+    </div>
+    <div *ngFor="let user of nestedObject">
+        <h4>{{user.name}}-- {{user.age}}-- {{user.department}}</h4>
+        <ul *ngFor="let account of user.socialAccount">
+            <li>{{account}}</li>
+        </ul>
+    </div>
+
+</div>
